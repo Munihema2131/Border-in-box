@@ -1,0 +1,57 @@
+*,*::before,*::after
+{
+    box-sizing: border-box;
+}
+body
+{
+    height: 100vh;
+    position: relative;
+    background-color: #0e2431;
+}
+.box,
+.box::before,
+.box::after
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    color: #ffff;
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 1px #ffff;
+    transform: rotate(0deg);
+}
+
+.line{
+    background: url("");
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45);
+}
+.box::before,
+.box::after
+{
+    content: '';
+    z-index: -1;
+    margin: -5%;
+    box-shadow: inset 0 0 0 2px;
+    border-radius: 6px;
+    animation: cliplt 8s linear infinite;
+}
+
+.box::before
+{
+    animation-delay: -4s;
+}
+@keyframes cliplt{
+    0%, 100% {clip: rect(0px, 220px, 2px, 0px);}
+    25%      {clip: rect(0px, 2px, 220px, 0px);}
+    50%      {clip: rect(218px, 220px, 220px, 0px);}
+    75%      {clip: rect(0px, 220px, 220px, 218px);}
+}
